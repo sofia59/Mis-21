@@ -1,4 +1,7 @@
-
+// ===== SONIDO =====
+const music = document.getElementById('music');
+const soundBtn = document.getElementById('soundBtn');
+let isPlaying = false;
 
 if (soundBtn && music) {
     soundBtn.addEventListener('click', () => {
@@ -10,6 +13,7 @@ if (soundBtn && music) {
             isPlaying = false;
             console.log('Pausado');
         } else {
+            music.currentTime = 32; 
             const playPromise = music.play();
             
             if (playPromise !== undefined) {
@@ -82,7 +86,7 @@ document.querySelectorAll('.portada, .details-wrapper, .reason-card, .confirm-bo
     observer.observe(el);
 });
 
-// ===== CONFETTI =====
+// ===== CONFETTI MEJORADO CON PUNTITOS Y ESTRELLAS =====
 let hasTriggered = false;
 window.addEventListener('scroll', () => {
     const section4 = document.querySelector('.section-4');
@@ -95,28 +99,70 @@ window.addEventListener('scroll', () => {
 });
 
 function createBurst() {
-    const colors = ['#1976d2', '#4caf50', '#0d47a1', '#1565c0', '#388e3c', '#ffffff'];
-    for (let i = 0; i < 40; i++) {
+    const colors = ['#1976d2', '#4caf50', '#0d47a1', '#1565c0', '#388e3c', '#ffffff', '#ffeb3b', '#ff6b6b', '#ff9800'];
+    
+    for (let i = 0; i < 100; i++) {
         const burst = document.createElement('div');
         burst.classList.add('confetti-burst');
         
-        const angle = (i / 40) * Math.PI * 2;
-        const velocity = 400 + Math.random() * 300;
+        const angle = (i / 100) * Math.PI * 2;
+        const velocity = 400 + Math.random() * 500;
         const tx = Math.cos(angle) * velocity;
         const ty = Math.sin(angle) * velocity;
         const rz = Math.random() * 720 - 360;
+        const duration = 2.5 + Math.random() * 2;
+        
+        // 70% puntitos, 30% estrellas
+        const isStar = Math.random() > 0.7;
+        
+        if (isStar) {
+            // Crear estrella
+            burst.textContent = '⭐';
+            burst.style.fontSize = Math.random() * 25 + 18 + 'px';
+            burst.style.width = 'auto';
+            burst.style.height = 'auto';
+            burst.style.display = 'flex';
+            burst.style.alignItems = 'center';
+            burst.style.justifyContent = 'center';
+        } else {
+            // Crear puntito de color
+            burst.style.width = Math.random() * 14 + 7 + 'px';
+            burst.style.height = burst.style.width;
+            burst.style.background = colors[Math.floor(Math.random() * colors.length)];
+            burst.style.borderRadius = '50%';
+            burst.style.boxShadow = `0 0 ${Math.random() * 8 + 4}px ${colors[Math.floor(Math.random() * colors.length)]}`;
+        }
 
         burst.style.setProperty('--tx', tx + 'px');
         burst.style.setProperty('--ty', ty + 'px');
         burst.style.setProperty('--rz', rz + 'deg');
         burst.style.left = '50%';
         burst.style.top = '50%';
-        burst.style.width = Math.random() * 8 + 4 + 'px';
-        burst.style.height = burst.style.width;
-        burst.style.background = colors[Math.floor(Math.random() * colors.length)];
-        burst.style.borderRadius = '50%';
+        burst.style.position = 'fixed';
+        burst.style.pointerEvents = 'none';
+        burst.style.animation = `confettiFall ${duration}s ease-out forwards`;
 
         document.body.appendChild(burst);
-        setTimeout(() => burst.remove(), 2500);
+        
+        setTimeout(() => burst.remove(), duration * 1000);
     }
+}
+
+// Agregar animación de confetti al documento
+if (!document.getElementById('confetti-styles')) {
+    const style = document.createElement('style');
+    style.id = 'confetti-styles';
+    style.textContent = `
+        @keyframes confettiFall {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) rotateZ(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--tx), var(--ty)) rotateZ(var(--rz));
+            }
+        }
+    `;
+    document.head.appendChild(style);
 }
