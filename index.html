@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cumpleaños Pádel - Sofía</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<audio id="music" loop>
+    <source src="https://www.youtube.com/watch?v=asZ9WmjginI&list=RDasZ9WmjginI&start_radio=1" type="audio/mpeg">
+</audio>
+
+    <button class="sound-btn" id="soundBtn">♫</button>
+
+    <!-- SECTION 1 - PORTADA -->
+    <section class="section-1">
+        <div class="portada">
+            <span class="portada-ball">
+                <img src="imagenes/pelota.png" alt="Pelota" class="rotating-image">
+            </span>
+            <h1>SOFÍA</h1>
+            <p>Mis 21</p>
+            
+            <div class="countdown-container">
+                <div class="countdown-circle">
+                    <div class="countdown-content">
+                        <div class="countdown-label">Falta</div>
+                        <div class="countdown-timer" id="countdownTimer">00:00:00</div>
+                        <div class="countdown-sub" id="countdownDate">días restantes</div>
+                    </div>
+                </div>
+            </div>
+
+            <span class="portada-tag">24 de Noviembre • 20:00</span>
+        </div>
+        <div class="swipe-indicator">Scrollea ↓</div>
+    </section>
+
+    <!-- SECTION 2 - DETALLES -->
+    <section class="section-2">
+        <div class="detail-accent detail-accent-1"></div>
+        <div class="detail-accent detail-accent-2"></div>
+        <div class="detail-accent detail-accent-3"></div>
+
+        <div class="details-wrapper">
+            <div class="detail-item">
+                <div class="detail-icon">📅</div>
+                <div class="detail-content">
+                    <div class="detail-label">Fecha</div>
+                    <div class="detail-main">Lunes 24 Nov</div>
+                    <div class="detail-sub">20:00 horas</div>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <div class="detail-icon">📍</div>
+                <div class="detail-content">
+                    <div class="detail-label">Dónde</div>
+                    <div class="detail-main">La Beba</div>
+                    <div class="detail-sub">Padel Club</div>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <div class="detail-icon">👕</div>
+                <div class="detail-content">
+                    <div class="detail-label">Vestimenta</div>
+                    <div class="detail-main">Ropa Deportiva</div>
+                    <div class="detail-sub">No olvides tu paleta!</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3 - POR QUÉ DEBES IR -->
+    <section class="section-3">
+        <h2 class="reasons-title">Por qué debes ir</h2>
+        <div class="reasons-container">
+            <div class="reason-card">
+                <span class="reason-emoji">🎾</span>
+                <div class="reason-text">Pádel y diversión</div>
+            </div>
+            <div class="reason-card">
+                <span class="reason-emoji">🍕</span>
+                <div class="reason-text">Comida y bebidas</div>
+            </div>
+    </section>
+
+    <!-- SECTION 4 - CONFIRMACIÓN -->
+    <section class="section-4">
+        <div class="confirm-box">
+            <h2>Confirmá</h2>
+            <p>Haz clic para confirmar que estarás en mi cumpleaños</p>
+            <a href="https://wa.me/543482276391?text=Hola%20Sofía!%20Confirmo%20que%20iré%20a%20tu%20cumpleaños.%20No%20me%20lo%20pierdo!" class="confirm-btn" target="_blank">
+                Confirmar por WhatsApp
+            </a>
+            <div class="contact-info">
+                +54 9 3482 276391
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
