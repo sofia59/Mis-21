@@ -92,7 +92,7 @@ window.addEventListener('scroll', () => {
     const section4 = document.querySelector('.section-4');
     const rect = section4.getBoundingClientRect();
     
-    if (rect.top < window.innerHeight && !hasTriggered) {
+    if (rect.top < window.innerHeight * 0.2 && !hasTriggered) {
         hasTriggered = true;
         createBurst();
     }
