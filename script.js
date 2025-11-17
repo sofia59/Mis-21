@@ -1,7 +1,4 @@
-// ===== SONIDO =====
-const music = document.getElementById('music');
-const soundBtn = document.getElementById('soundBtn');
-let isPlaying = false;
+
 
 if (soundBtn && music) {
     soundBtn.addEventListener('click', () => {
